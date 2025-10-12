@@ -54,7 +54,8 @@ int main() {
 
     printf("Type the number of the students: ");                //1
     scanf("%d", &n);
-    
+    getchar();
+
     int age[n]; // age of the students,
     char name[n][50], Letter_Grade[n]; // the name of a single student if the students are n.
     float grades[n][3], AG[n]; // each student has 3 grades,  AG = average grade
@@ -62,14 +63,17 @@ int main() {
     i = 0;                                                      //2
     while (i < n) {
         printf("Type your name: ");
-        getchar();
         fgets(name[i], 50, stdin);
+        name[i][strcspn(name[i],"\n")] = '\0';
+
         printf("Type your age: ");
         scanf("%d", &age[i]);
+        getchar();
         for(j = 0; j<3; j++) {
             do { //input check
                 printf("Type your Grade %d: ", j+1);
                 scanf("%f", &grades[i][j]);
+                getchar();
             }while(grades[i][j] <0.0 || grades[i][j] >10.0);
         }
         //Average grade calculation
@@ -92,7 +96,8 @@ int main() {
 
         printf("Type your answer: ");
         scanf("%d", &choose);
-    
+        getchar();
+        
         switch(choose){
         case 1:
             //display students call
@@ -112,7 +117,6 @@ int main() {
             char students_name[50];
             //search
             printf("Type the name of the student : ");
-            getchar();
             fgets(students_name ,50, stdin);
             //comparison
             bool found = false;
