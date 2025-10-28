@@ -52,7 +52,7 @@ void CreateCharacter(Player *Pl, int i){
     
     //Level
     do{
-        printf("Enter your Character's level : ");
+        printf("Enter your Character's level (0-100): ");
         scanf("%d", &Pl[i].Level);
     } while (Pl[i].Level < 0 || Pl[i].Level > 100);
     
@@ -199,7 +199,7 @@ int main() {
                 name[strcspn(name, "\n")] = '\0'; //removes the \n
                 for(int i=0; i< characters; i++){
                     if(strcmp(name,Pl[i].name)==0){
-                        printf("Character found...");
+                        printf("Character found...\n");
                         position_of_Character = i;
                         Characterfound = true;
                         break;
